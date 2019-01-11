@@ -8,12 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		27CDED7321E87CCA00C4287C /* Beam.h in Headers */ = {isa = PBXBuildFile; fileRef = 27CDED7121E87CCA00C4287C /* Beam.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		27CDED8421E87D2800C4287C /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CDED7B21E87D2700C4287C /* Task.swift */; };
+		27CDED8521E87D2800C4287C /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CDED7C21E87D2700C4287C /* Token.swift */; };
+		27CDED8621E87D2800C4287C /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CDED7D21E87D2700C4287C /* Response.swift */; };
+		27CDED8721E87D2800C4287C /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CDED7E21E87D2700C4287C /* Environment.swift */; };
+		27CDED8821E87D2800C4287C /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CDED7F21E87D2700C4287C /* Authentication.swift */; };
+		27CDED8921E87D2800C4287C /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CDED8021E87D2700C4287C /* Request.swift */; };
+		27CDED8A21E87D2800C4287C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CDED8121E87D2700C4287C /* Service.swift */; };
+		27CDED8B21E87D2800C4287C /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CDED8221E87D2800C4287C /* Status.swift */; };
+		27CDED8C21E87D2800C4287C /* DefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CDED8321E87D2800C4287C /* DefaultService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		27CDED6E21E87CCA00C4287C /* Beam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Beam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		27CDED7121E87CCA00C4287C /* Beam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Beam.h; sourceTree = "<group>"; };
 		27CDED7221E87CCA00C4287C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27CDED7B21E87D2700C4287C /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		27CDED7C21E87D2700C4287C /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		27CDED7D21E87D2700C4287C /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		27CDED7E21E87D2700C4287C /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		27CDED7F21E87D2700C4287C /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		27CDED8021E87D2700C4287C /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		27CDED8121E87D2700C4287C /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		27CDED8221E87D2800C4287C /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		27CDED8321E87D2800C4287C /* DefaultService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,10 +64,27 @@
 		27CDED7021E87CCA00C4287C /* Beam */ = {
 			isa = PBXGroup;
 			children = (
+				27CDED7921E87CCF00C4287C /* Source */,
 				27CDED7121E87CCA00C4287C /* Beam.h */,
 				27CDED7221E87CCA00C4287C /* Info.plist */,
 			);
 			path = Beam;
+			sourceTree = "<group>";
+		};
+		27CDED7921E87CCF00C4287C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				27CDED7F21E87D2700C4287C /* Authentication.swift */,
+				27CDED8321E87D2800C4287C /* DefaultService.swift */,
+				27CDED7E21E87D2700C4287C /* Environment.swift */,
+				27CDED8021E87D2700C4287C /* Request.swift */,
+				27CDED7D21E87D2700C4287C /* Response.swift */,
+				27CDED8121E87D2700C4287C /* Service.swift */,
+				27CDED8221E87D2800C4287C /* Status.swift */,
+				27CDED7B21E87D2700C4287C /* Task.swift */,
+				27CDED7C21E87D2700C4287C /* Token.swift */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +130,7 @@
 				TargetAttributes = {
 					27CDED6D21E87CCA00C4287C = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -130,6 +166,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27CDED8421E87D2800C4287C /* Task.swift in Sources */,
+				27CDED8A21E87D2800C4287C /* Service.swift in Sources */,
+				27CDED8921E87D2800C4287C /* Request.swift in Sources */,
+				27CDED8B21E87D2800C4287C /* Status.swift in Sources */,
+				27CDED8C21E87D2800C4287C /* DefaultService.swift in Sources */,
+				27CDED8721E87D2800C4287C /* Environment.swift in Sources */,
+				27CDED8621E87D2800C4287C /* Response.swift in Sources */,
+				27CDED8821E87D2800C4287C /* Authentication.swift in Sources */,
+				27CDED8521E87D2800C4287C /* Token.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +306,7 @@
 		27CDED7721E87CCA00C4287C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -278,6 +324,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kylebegeman.Beam;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -286,6 +333,7 @@
 		27CDED7821E87CCA00C4287C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
