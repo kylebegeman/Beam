@@ -76,7 +76,7 @@ public extension Request {
     var parameters: Parameters? { return nil }
     var headers: Headers? { return nil }
     var timeoutInterval: TimeInterval { return 10.0 }
-    var authentication: Authentication? { return .none }
+    var authentication: Authentication { return .none }
 
     /* Deprecated: Authorization = \(self.authentication.description) */
     var description: String {
