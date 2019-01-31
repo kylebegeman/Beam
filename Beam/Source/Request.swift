@@ -61,7 +61,7 @@ public protocol Request {
     var authentication: Authentication { get }
 
     // Required headers for each request, if any.
-    var headers: Headers? { get }
+    var additionalHeaders: Headers? { get }
 
     // The timeout interval defined per request.
     var timeoutInterval: TimeInterval { get }
@@ -74,14 +74,55 @@ public protocol Request {
 public extension Request {
     var dataType: DataType { return .JSON }
     var parameters: Parameters? { return nil }
-    var headers: Headers? { return nil }
     var timeoutInterval: TimeInterval { return 10.0 }
     var authentication: Authentication { return .none }
+    var additonalHeaders: Headers? { return nil }
 
-    /* Deprecated: Authorization = \(self.authentication.description) */
+    /// Default headers
+    internal var defaultHeaders: Headers {
+        // Accept-Encoding HTTP header
+        let acceptEncoding: String = "gzip;q=1.0, compress;q=0.5"
+
+        // Accept-Language HTTP header
+        let acceptLanguage = Locale.preferredLanguages.prefix(6).enumerated().map { index, languageCode in
+            let quality = 1.0 - (Double(index) * 0.1)
+            return "\(languageCode);q=\(quality)"
+        }.joined(separator: ", ")
+
+        // User-Agent header.
+        let userAgent: String = {
+            if let info = Bundle.main.infoDictionary {
+                return getUserAgent(for: info)
+            }
+
+            return "Beam-Default"
+        }()
+
+        return [
+            "Accept-Encoding": acceptEncoding,
+            "Accept-Language": acceptLanguage,
+            "User-Agent": userAgent,
+            "Content-Type": "application/json"
+        ]
+    }
+
+    /// Combines the default headers with any available additional headers.
+    var allHeaders: Headers {
+        var allHeaders: Headers = self.defaultHeaders
+
+        if let newHeaders = self.additonalHeaders {
+            for (header, value) in newHeaders {
+                allHeaders[header] = value
+            }
+        }
+
+        return allHeaders
+    }
+
+    /// A string description of the request.
     var description: String {
         return """
-        Headers = \(self.headers != nil ? String(describing: self.headers) : "none")
+        Headers = \(String(describing: self.allHeaders))
         Method = \(self.method.rawValue)
         Data Type = \(self.dataType.rawValue)
         Path = \(self.path)
@@ -89,4 +130,46 @@ public extension Request {
         Authorization = \(self.authentication.description)
         """
     }
+}
+
+// MARK: - Helpers
+
+extension Request {
+
+    /// Construct the user again string to be passed into the request header.
+    ///
+    /// - Parameter info: info dictionary pulled from the main bundle.
+    /// - Returns: a string representing the use agent header field value.
+    private func getUserAgent(for info: [String: Any]) -> String {
+        let executable = info[kCFBundleExecutableKey as String] as? String ?? "Unknown"
+        let bundle = info[kCFBundleIdentifierKey as String] as? String ?? "Unknown"
+        let appVersion = info["CFBundleShortVersionString"] as? String ?? "Unknown"
+        let appBuild = info[kCFBundleVersionKey as String] as? String ?? "Unknown"
+        let osNameVersion: String = getOsNameVersion()
+
+        return "\(executable)/\(appVersion) (\(bundle); build:\(appBuild); \(osNameVersion))"
+    }
+
+    /// Get the correct osNameVersion property for the user agent header.
+    ///
+    /// - Returns: the os name in string form.
+    private func getOsNameVersion() -> String {
+        let version = ProcessInfo.processInfo.operatingSystemVersion
+        let versionString = "\(version.majorVersion).\(version.minorVersion).\(version.patchVersion)"
+
+        let osName: String = {
+            #if os(iOS)
+                return "iOS"
+            #elseif os(watchOS)
+                return "watchOS"
+            #elseif os(tvOS)
+                return "tvOS"
+            #else
+                return "Unknown"
+            #endif
+        }()
+
+        return "\(osName) \(versionString)"
+    }
+
 }

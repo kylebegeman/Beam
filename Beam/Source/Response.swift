@@ -58,10 +58,8 @@ public enum Response {
         }
 
         switch request.dataType {
-        case .Data:
-            self = .data(status, data)
-        case .JSON:
-            self = .json(status, JSON(data: data))
+        case .Data: self = .data(status, data)
+        case .JSON: self = .json(status, JSON(data: data))
         }
     }
 }
