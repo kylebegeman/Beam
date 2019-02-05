@@ -42,16 +42,19 @@ public typealias Headers = [String: String]
 
 /// Defines the required attributes for making a network request
 public protocol Request {
-    /// API version specific to the request
+    /// The base URL for the request.
+    var baseUrl: String? { get } 
+
+    /// API version specific to the request.
     var version: String? { get }
 
     // The constructed path based on paramters specific to each request.
     var path: String { get }
 
-    // The HTTP medthod for each request (Ex: GET, PUSH)
+    // The HTTP medthod for each request (Ex: GET, PUSH).
     var method: HTTPMethod { get }
 
-    // Expected data type for the response
+    // Expected data type for the response.
     var dataType: DataType { get }
 
     // Required parameters for each request, if any.
@@ -66,7 +69,7 @@ public protocol Request {
     // The timeout interval defined per request.
     var timeoutInterval: TimeInterval { get }
 
-    // Description for output
+    // Description for output.
     var description: String { get }
 }
 
