@@ -43,7 +43,7 @@ public typealias Headers = [String: String]
 /// Defines the required attributes for making a network request
 public protocol Request {
     /// The base URL for the request.
-    var baseUrl: String? { get } 
+    var baseUrl: String? { get }
 
     /// API version specific to the request.
     var version: String? { get }
