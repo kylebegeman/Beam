@@ -1,6 +1,6 @@
 //
 //  Service.swift
-//  Transmit
+//  Beam
 //
 //  Created by Kyle Begeman on 2/1/18.
 //  Copyright © 2018 Kyle Begeman. All rights reserved.
@@ -76,7 +76,7 @@ public protocol Service {
 public extension Service {
 
     /// Implementation of the Service protocol method prepareNetworkRequest.
-    public func configureNetworkRequest(for request: Request) throws -> URLRequest {
+    func configureNetworkRequest(for request: Request) throws -> URLRequest {
         guard let url = URL(string: request.path) else {
             throw ServiceError.badInput(request: request)
         }
@@ -90,7 +90,7 @@ public extension Service {
     }
 
     /// Configure the URLRequest with the request parameters, if applicable.
-    public func configureParameters(for request: Request, withUrlRequest urlRequest: inout URLRequest) throws -> URLRequest {
+    func configureParameters(for request: Request, withUrlRequest urlRequest: inout URLRequest) throws -> URLRequest {
         guard let parameters = request.parameters else { return urlRequest }
 
         switch parameters {
@@ -116,7 +116,7 @@ public extension Service {
     }
 
     /// Configure the URLRequest with the request headers, if applicable.
-    public func configureHeaders(for request: Request, withUrlRequest urlRequest: inout URLRequest) -> URLRequest {
+    func configureHeaders(for request: Request, withUrlRequest urlRequest: inout URLRequest) -> URLRequest {
         request.allHeaders.forEach { header, value in
             urlRequest.addValue(value, forHTTPHeaderField: header)
         }

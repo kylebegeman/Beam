@@ -1,6 +1,6 @@
 //
-//  Authorization.swift
-//  Transmit
+//  Authentication.swift
+//  Beam
 //
 //  Created by Kyle Begeman on 2/5/18.
 //  Copyright © 2018 Kyle Begeman. All rights reserved.
