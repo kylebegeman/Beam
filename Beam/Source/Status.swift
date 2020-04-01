@@ -1,6 +1,6 @@
 //
-//  HTTPStatus.swift
-//  Transmit
+//  Status.swift
+//  Beam
 //
 //  Created by Kyle Begeman on 5/4/18.
 //  Copyright © 2018 Kyle Begeman. All rights reserved.

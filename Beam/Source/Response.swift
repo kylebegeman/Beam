@@ -1,6 +1,6 @@
 //
 //  Response.swift
-//  Transmit
+//  Beam
 //
 //  Created by Kyle Begeman on 1/25/18.
 //  Copyright © 2018 Kyle Begeman. All rights reserved.

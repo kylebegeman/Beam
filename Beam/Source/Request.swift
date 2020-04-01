@@ -1,6 +1,6 @@
 //
-//  Requestable.swift
-//  Transmit
+//  Request.swift
+//  Beam
 //
 //  Created by Kyle Begeman on 1/23/18.
 //  Copyright © 2018 Kyle Begeman. All rights reserved.
